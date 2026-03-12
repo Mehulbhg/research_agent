@@ -1,4 +1,4 @@
-console.log("🔥 THIS IS THE REAL SERVER FILE");
+console.log(" THIS IS THE REAL SERVER FILE");
 import express from "express";
 import cors from "cors";
 import axios from "axios";
@@ -16,7 +16,7 @@ app.use(express.json());
 
 
 app.get("/", (req, res) => {
-  res.send("Backend is working 🚀");
+  res.send("Backend is working");
 });
 
 
@@ -36,7 +36,7 @@ app.get("/search", async (req, res) => {
     const entries = parsed.feed.entry;
 
     const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash",
+      model: "gemini-3-flash-preview",
     });
 
     let results = [];
@@ -58,7 +58,7 @@ app.get("/search", async (req, res) => {
     res.json(results);
 
   } catch (err) {
-   console.error("🔥 FULL ERROR:", err.response?.data || err.message || err);
+   console.error(" FULL ERROR:", err.response?.data || err.message || err);
     res.status(500).send("Something went wrong");
   }
 });
